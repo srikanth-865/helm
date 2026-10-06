@@ -9,7 +9,7 @@ metadata:
     purpose: deployment
 spec:
 #service use selector to use this labels and finding like thes labels in the pods
-type: {{ .Values.service.type }}
+ type: {{ .Values.service.type }}
  selector:
     project: roboshop
     tier: frontend
