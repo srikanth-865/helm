@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:{{ .Values.deployment.imageversion }}
+        image: nginx:{{ .Values.deployment.imageversion }} #here we get latest one version
         ports:
         - containerPort: 80

@@ -1,3 +1,5 @@
 deployment:
   replicas: 2
   imageversion: latest
+spec:
+ type: ClusterIP

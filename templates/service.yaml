@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    project: roboshop
+    tier: frontend
+    component: frontend
+    purpose: deployment
+spec:
+#service use selector to use this labels and finding like thes labels in the pods
+type: {{ .Values.service.type }}
+ selector:
+    project: roboshop
+    tier: frontend
+    component: frontend
+    purpose: deployment
+   #targetPort → the port where the application inside the Pod/container is listening.
+ 
+ ports:
+  - protocol: TCP
+    port: 80  #he port where the Service accepts traffic from user
+    targetPort: 80 #    target port is used for listening inside the container service port for listening user traffic
+
