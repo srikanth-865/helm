@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  # labels related to deployment resource
+  labels:
+    project: roboshop
+    tier: frontend
+    component: frontend
+    purpose: deployment
+spec:
+  replicas: {{ .Values.deployment.replicas }} # it goes to values.yaml file and taking value 
+  selector:  #Tells the Deployment controller which Pods to manage (matching the labels).
+    matchLabels:
+      project: roboshop
+      tier: frontend
+      component: frontend
+      purpose: deployment
+  # Pod defination
+  template:  #The blueprint used to create new Pods, defining the container name, image, and ports.
+    metadata:
+      labels:
+        project: roboshop
+        tier: frontend
+        component: frontend
+        purpose: deployment
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:{{ .Values.deployment.imageversion }}
+        ports:
+        - containerPort: 80
