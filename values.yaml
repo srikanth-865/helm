@@ -1,5 +1,5 @@
-deployment:
+deployment: #filename
   replicas: 2
   imageversion: latest
-Service:
+service: #filename
  type: ClusterIP
